@@ -1,5 +1,6 @@
 package edu.mephi.java;
 
+import edu.mephi.java.engine.Direction;
 import edu.mephi.java.engine.Game;
 
 import javax.swing.*;
@@ -23,8 +24,14 @@ public class Main {
 				if (game.isGameOver() && e.getKeyCode() == KeyEvent.VK_R) {
 					game.restart();
 				}
+				else
+					switch (e.getKeyCode()) {
+						case KeyEvent.VK_UP -> game.setDirection(Direction.UP);
+						case KeyEvent.VK_DOWN -> game.setDirection(Direction.DOWN);
+						case KeyEvent.VK_LEFT -> game.setDirection(Direction.LEFT);
+						case KeyEvent.VK_RIGHT -> game.setDirection(Direction.RIGHT);
+					}
 			}
 		});
-
 	}
 }
